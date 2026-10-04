@@ -9,7 +9,7 @@ import myClass.* ;
  */
 public class LibDB<T extends DB_Element>
 {
-    private ArrayList<T> db ; 
+    private ArrayList<T> db = new ArrayList<T> () ; 
 
     /**
      * LibDB 클래스의 객체 생성자
