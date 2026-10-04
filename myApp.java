@@ -4,7 +4,7 @@ import java.util.* ;
 /**
  * myApp  :  ㅇㅇㅇ 를 최종 실행시키는 main 
  *
- * @author (2025957072 강서윤, 2023320022 편규빈)
+ * @author (2025957072 강서윤, 2023320022 편규빈, 2025320070 복창희)
  * @version (2026-10-04)
  */
 public class myApp
@@ -28,14 +28,27 @@ public class myApp
         //4. 이용자 목록 출력 
         System.out.println("----- 이용자 목록 출력 -----");
         printDB(UserDB);
-
+        System.out.println();
+        
+        //5. 책 4권 생성
+        Book book1 = new Book("홍길동", "B01", "ABC", "Java Programming", 2000);
+        Book book2 = new Book("profsHwang", "B02", "SMU", "Software Analysis and Design", 2023);
+        Book book3 = new Book("황기태", "B03", "생능출판", "명품 자바프로그래밍", 2025);
+        Book book4 = new Book("profsHwang", "B04", "SMU", "소프트웨어테스트", 2024);
+        
+        //6. 책 4권을 책DB에 등록
+        BookDB.addElement(book1);
+        BookDB.addElement(book2);
+        BookDB.addElement(book3);
+        BookDB.addElement(book4);
+        
+        //7. 
     }
 
     /**
-     * 메소드 예제 - 사용자에 맞게 주석을 바꾸십시오.
+     * printDB() : DB 내 요소 전부 출력
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 와 y의 합
+     * @param  db(책 DB or 이용자 DB)
      */
     public static <T extends DB_Element> void printDB(LibDB <T> db)
     {
