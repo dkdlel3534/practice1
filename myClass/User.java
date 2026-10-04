@@ -15,7 +15,7 @@ public class User extends DB_Element
      * User 클래스 생성자
      *
      * @param  stID , name
-    
+
      */
     public User(int stID,String name)
     {
@@ -42,6 +42,6 @@ public class User extends DB_Element
      */
     public String toString()
     {
-        return "[" +stID+ "]"+ " "+ name ;    }
+        return "[" +stID+ "]"+ " "+ name ; }
 
 }

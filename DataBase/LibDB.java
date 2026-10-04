@@ -48,9 +48,8 @@ public class LibDB<T extends DB_Element>
             object = it.next()  ;  // DB 내 객체를 의미 (책 or 이용자)
 
             // 만일 파라미터의 ID가 객체의 ID와 일치한다면 break , 그리고 해당 객체를 반환 
-            if (ID == object.getID()) {
+            if (ID.equals(object.getID())) {
                 break ; 
-
             }
         }
         return object ; 
