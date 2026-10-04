@@ -47,6 +47,11 @@ public class myApp
         printDB(BookDB);
         System.out.println();
         
+        //8. 대출작업 3건 수행
+        LoanDB.put(user1.getID(), book2.getID());
+        LoanDB.put(user2.getID(), book3.getID());
+        LoanDB.put(user3.getID(), book4.getID());
+        
         
     }
 
