@@ -1,35 +1,57 @@
 package DataBase;
-
-
+import java.util.* ; 
+import myClass.* ; 
 /**
- * LibDB 클래스의 설명을 작성하세요.
+ * LibDB<T> 클래스 : 책 DB와 이용자 DB를 만들어내는 제네릭 클래스 
  *
- * @author (작성자 이름)
- * @version (버전 번호 또는 작성한 날짜)
+ * @author (2025957072 강서윤)
+ * @version (2026-10-04)
  */
-public class LibDB
+public class LibDB<T>
 {
-    // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
-    private int x;
+    private ArrayList<T> db ; 
 
     /**
      * LibDB 클래스의 객체 생성자
      */
     public LibDB()
     {
-        // 인스턴스 변수 초기화
-        x = 0;
+        ArrayList<T> db = new ArrayList<T> () ; 
     }
 
     /**
-     * 예제 메소드 - 이 주석을 사용자에 맞게 바꾸십시오
+     * addElement() : DB에 요소(객체)를 추가하는 메소드 
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 더하기 y의 결과값을 반환
+     * @param     추가할 요소 객체 T
+     * @return    void
      */
-    public int sampleMethod(int y)
+
+    ///  이 부분 제네릭 메소드인가 ? 
+    public void addElement(T element)
     {
-        // 여기에 코드를 작성하세요.
-        return x + y;
+        db.add(element) ; 
     }
+
+    // /**
+     // * findElement() : ID를 이용하여 DB내 해당 객체를 검색하는 메소드 
+     // *
+     // * @param   ID 값 (책의 등록 번호 or 이용자 학번)
+     // * @return  DB 내 객체 반환 (T)
+     // */
+    // // 얘도 제네릭 메소드 ? 
+    // public T findElement(String ID)
+    // {
+        // Iterator<T> it = db.iterator() ; 
+
+        // while(it.hasNext()) {
+            // T object = it.next()  ;  // DB 내 객체를 의미 (책 or 이용자)
+
+            // // 만일 파라미터의 ID가 객체의 ID와 일치한다면 break , 그리고 해당 객체를 반환 
+            // if (ID == object.getID()) {
+                // return object ; 
+                // break ; 
+            // }
+        // }
+    // }
+
 }
