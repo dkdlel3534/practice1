@@ -3,11 +3,12 @@ package myClass;
 /**
  * Book 클래스의 설명을 작성하세요.
  *
- * @author (작성자 이름)
+ * @author (2025957072 강서윤, 2023320022 편규빈)
  * @version (2026-10-04)
  */
-public class Book
+public class Book extends DB_Element
 {
+    //Book의 속성
     private String author ; 
     private String bookID ; 
     private String publisher ; 
@@ -15,7 +16,9 @@ public class Book
     private int year ; 
 
     /**
-     * Book 클래스의 객체 생성자
+     * Book 클래스 생성자 
+     * @param 저자, 책 등록번호, 출판사, 책 제목, 출판년도
+     * 
      */
     public Book(String author , String bookID , String publisher , String title , int year)
     {

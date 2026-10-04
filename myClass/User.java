@@ -1,10 +1,9 @@
 package myClass;
 
-
 /**
- * User 클래스 : 
+ * User 클래스 : 이용자 객체를 생성하는 클래스 
  *
- * @author (2025320070 복창희, )
+ * @author (2025320070 복창희,2023320022 편규빈 )
  * @version (2026-10-04)
  */
 public class User extends DB_Element
@@ -13,22 +12,36 @@ public class User extends DB_Element
     private Integer stID;
 
     /**
-     * User 클래스의 객체 생성자
+     * User 클래스 생성자
+     *
+     * @param  stID , name
+    
      */
-    public User()
+    public User(int stID,String name)
     {
-        // 인스턴스 변수 초기화
-        x = 0;
+        this.stID = stID ;
+        this.name = name ;
     }
 
     /**
-     * 예제 메소드 - 이 주석을 사용자에 맞게 바꾸십시오
+     * getID 메소드 -  이용자의 학번을 반환하는 매소드
      *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 더하기 y의 결과값을 반환
+     * 
+     * @return   stID
      */
     public String getID()
     {
         return Integer.toString(stID);
     }
+
+    /**
+     * toString 메소드 - 학번과 이름을 출력하는 메소드
+     *
+     * 
+     * @return   학번과 이름
+     */
+    public String toString()
+    {
+        return "[" +stID+ "]"+ " "+ name ;    }
+
 }
