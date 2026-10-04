@@ -4,7 +4,7 @@ import myClass.* ;
 /**
  * LibDB<T> 클래스 : 책 DB와 이용자 DB를 만들어내는 제네릭 클래스 
  *
- * @author (2025957072 강서윤)
+ * @author (2025957072 강서윤, 2025320070 복창희)
  * @version (2026-10-04)
  */
 public class LibDB<T extends DB_Element>
@@ -42,7 +42,7 @@ public class LibDB<T extends DB_Element>
     public T findElement(String ID)
     {
         Iterator<T> it = db.iterator() ; 
-        
+
         T object = null ; 
         while(it.hasNext()) {
             object = it.next()  ;  // DB 내 객체를 의미 (책 or 이용자)
@@ -54,6 +54,16 @@ public class LibDB<T extends DB_Element>
             }
         }
         return object ; 
+    }
+
+    /**
+     * printAllElement() : DB의 객체의 내용을 전부 출력한다
+     */
+    public void printAllElements()
+    {
+        for (T object : db){
+            System.out.println(object.toString());
+        }
     }
 
 }
