@@ -7,7 +7,7 @@ import myClass.* ;
  * @author (2025957072 강서윤)
  * @version (2026-10-04)
  */
-public class LibDB<T>
+public class LibDB<T extends DB_Element>
 {
     private ArrayList<T> db ; 
 
@@ -32,26 +32,28 @@ public class LibDB<T>
         db.add(element) ; 
     }
 
-    // /**
-     // * findElement() : ID를 이용하여 DB내 해당 객체를 검색하는 메소드 
-     // *
-     // * @param   ID 값 (책의 등록 번호 or 이용자 학번)
-     // * @return  DB 내 객체 반환 (T)
-     // */
-    // // 얘도 제네릭 메소드 ? 
-    // public T findElement(String ID)
-    // {
-        // Iterator<T> it = db.iterator() ; 
+    /**
+     * findElement() : ID를 이용하여 DB내 해당 객체를 검색하는 메소드 
+     *
+     * @param   ID 값 (책의 등록 번호 or 이용자 학번)
+     * @return  DB 내 객체 반환 (T)
+     */
+    // 얘도 제네릭 메소드 ? 
+    public T findElement(String ID)
+    {
+        Iterator<T> it = db.iterator() ; 
+        
+        T object = null ; 
+        while(it.hasNext()) {
+            object = it.next()  ;  // DB 내 객체를 의미 (책 or 이용자)
 
-        // while(it.hasNext()) {
-            // T object = it.next()  ;  // DB 내 객체를 의미 (책 or 이용자)
+            // 만일 파라미터의 ID가 객체의 ID와 일치한다면 break , 그리고 해당 객체를 반환 
+            if (ID == object.getID()) {
+                break ; 
 
-            // // 만일 파라미터의 ID가 객체의 ID와 일치한다면 break , 그리고 해당 객체를 반환 
-            // if (ID == object.getID()) {
-                // return object ; 
-                // break ; 
-            // }
-        // }
-    // }
+            }
+        }
+        return object ; 
+    }
 
 }
