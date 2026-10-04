@@ -21,5 +21,9 @@ public class myApp
         User user2 = new User(2024320002, "Lee") ; 
         User user3 = new User(2023320003, "Park") ; 
         
+        //3. 이용자를 이용자DB에 등록
+        UserDB.addElement(user1);
+        UserDB.addElement(user2);
+        UserDB.addElement(user3);
     }
 }
