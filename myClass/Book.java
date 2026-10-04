@@ -49,7 +49,7 @@ public class Book extends DB_Element
     public String toString()
     {
         // 여기에 코드를 작성하세요
-        return  "(" + bookID + ")" + " "+title + ","+author+"," + publisher + "," + year ; 
+        return  "(" + bookID + ")" + " "+title + ", "+author+", " + publisher + ", " + year ; 
     }
 
 }

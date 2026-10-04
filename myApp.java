@@ -42,7 +42,10 @@ public class myApp
         BookDB.addElement(book3);
         BookDB.addElement(book4);
         
-        //7. 
+        //7. 책 목록 출력
+        System.out.println("----- 책 목록 출력 -----");
+        printDB(BookDB);
+        System.out.println();
     }
 
     /**
