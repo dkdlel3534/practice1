@@ -41,7 +41,7 @@ public class LibDB<T extends DB_Element>
   
     public T findElement(String ID)
     {
-        // Iterator 실행
+        // db 순회를 위한 Iterator 실행
         Iterator<T> it = db.iterator() ; 
 
         T object = null; 

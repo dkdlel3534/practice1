@@ -11,9 +11,9 @@ public class myApp
 {
     public static void main(String[] args) {
         // 1. 3개의 DB 생성 
-        LibDB<Book> BookDB = new LibDB<Book> () ;  // 책 DB 생성 
-        LibDB<User> UserDB = new LibDB<User> () ;  // 이용자 DB 생성 
-        HashMap<String, String> loanDB = new HashMap<String, String> () ; // 대출 DB 생성 
+        LibDB<Book> bookDB = new LibDB<Book> () ;  // 책 DB 생성 
+        LibDB<User> userDB = new LibDB<User> () ;  // 이용자 DB 생성 
+        HashMap<User, Book> loanDB = new HashMap <User, Book > () ; // 대출 DB 생성 
 
         // 2. 이용자 3명 생성 
         User user1 = new User(2025320001 , "Kim") ; 
@@ -21,13 +21,13 @@ public class myApp
         User user3 = new User(2023320003, "Park") ; 
 
         //3. 이용자를 이용자DB에 등록
-        UserDB.addElement(user1);
-        UserDB.addElement(user2);
-        UserDB.addElement(user3);
+        userDB.addElement(user1);
+        userDB.addElement(user2);
+        userDB.addElement(user3);
 
         //4. 이용자 목록 출력 
         System.out.println("----- 이용자 목록 출력 -----");
-        printDB(UserDB);
+        printDB(userDB);
         System.out.println();
 
         //5. 책 4권 생성
@@ -37,25 +37,25 @@ public class myApp
         Book book4 = new Book("profsHwang", "B04", "SMU", "소프트웨어테스트", 2024);
 
         //6. 책 4권을 책DB에 등록
-        BookDB.addElement(book1);
-        BookDB.addElement(book2);
-        BookDB.addElement(book3);
-        BookDB.addElement(book4);
+        bookDB.addElement(book1);
+        bookDB.addElement(book2);
+        bookDB.addElement(book3);
+        bookDB.addElement(book4);
 
         //7. 책 목록 출력
         System.out.println("----- 책 목록 출력 -----");
-        printDB(BookDB);
+        printDB(bookDB);
         System.out.println();
 
         //8. 대출작업 3건 수행
-        loanDB.put(user1.getID(), book2.getID()) ;
-        loanDB.put(user2.getID(), book3.getID());
-        loanDB.put(user3.getID(), book4.getID());
+        loanDB.put(userDB.findElement(user1.getID()), bookDB.findElement(book2.getID())); 
+        loanDB.put(userDB.findElement(user2.getID()), bookDB.findElement(book3.getID()));
+        loanDB.put(userDB.findElement(user3.getID()), bookDB.findElement(book4.getID()));
 
         
         // 9. 대출 현황 출력
         System.out.println("----- 대출 현황 출력 -----") ;
-        printLoanList(loanDB , UserDB, BookDB) ;
+        printLoanList(loanDB) ;
     }
     
     /**
@@ -71,28 +71,21 @@ public class myApp
     /**
      * printLoanList() : 대출 현황을 전부 출력하는 메소드 
      *
-     * @param    대출 DB , 이용자DB , 대출DB 
+     * @param    대출 DB
      * @return   void
      * 
      */
-    public static void printLoanList(HashMap<String,String> loanDB, LibDB<User>UserDB, LibDB<Book>BookDB)
+    public static void printLoanList(HashMap<User,Book> loanDB)
     {
-        Set<String> keySet = loanDB.keySet() ; 
-        Iterator<String> it = keySet.iterator() ; 
-        
+        Set<User> keySet = loanDB.keySet() ;  // 모든 key 목록 가져오기 
+        Iterator<User> it = keySet.iterator() ; // key 목록 순회를 위한 Iterator() 실행 !
+    
         while (it.hasNext()) {
-            String UserID = it.next() ;         
-            String BookID = loanDB.get(UserID) ;  // key값(UserID)을 이용해 value값(BookID) 검색
-            
-            // 이용자 객체 찾기 
-            User user = UserDB.findElement(UserID) ; 
-            
-            // 책 객체 찾기 
-            Book book = BookDB.findElement(BookID) ; 
+            User user = it.next() ;  // User 객체 가져오기 
+            Book book = loanDB.get(user) ;  // Book 객체 가져오기 
             
             // 대출 현황 출력 (이용자 정보 => 책 정보)
             System.out.println(user.toString()+" ===> "+book.toString()) ; 
         }
     }
-
 }
