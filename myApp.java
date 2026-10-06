@@ -48,7 +48,7 @@ public class myApp
         System.out.println();
 
         //8. 대출작업 3건 수행
-        loanDB.put(user1.getID() , book2.getID()) ;
+        loanDB.put(user1.getID(), book2.getID()) ;
         loanDB.put(user2.getID(), book3.getID());
         loanDB.put(user3.getID(), book4.getID());
 
@@ -61,7 +61,7 @@ public class myApp
     /**
      * printDB() : 책 DB 또는 이용자 DB의 모든 요소를 출력하는 메소드 
      *
-     * @param  db(책 DB or 이용자 DB)
+     * @param    db(책 DB or 이용자 DB)
      */
     public static <T extends DB_Element> void printDB(LibDB <T> db)
     {
@@ -71,7 +71,7 @@ public class myApp
     /**
      * printLoanList() : 대출 현황을 전부 출력하는 메소드 
      *
-     * @param    null
+     * @param    대출 DB , 이용자DB , 대출DB 
      * @return   void
      * 
      */
@@ -81,18 +81,16 @@ public class myApp
         Iterator<String> it = keySet.iterator() ; 
         
         while (it.hasNext()) {
-            String UserID = it.next() ;  
-            String BookID = loanDB.get(UserID) ;  
+            String UserID = it.next() ;         
+            String BookID = loanDB.get(UserID) ;  // key값(UserID)을 이용해 value값(BookID) 검색
             
-            // 이용자 객체
+            // 이용자 객체 찾기 
             User user = UserDB.findElement(UserID) ; 
             
-            
-            // 책 객체
+            // 책 객체 찾기 
             Book book = BookDB.findElement(BookID) ; 
             
-            
-            // 최종 출력
+            // 대출 현황 출력 (이용자 정보 => 책 정보)
             System.out.println(user.toString()+" ===> "+book.toString()) ; 
         }
     }

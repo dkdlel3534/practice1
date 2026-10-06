@@ -1,20 +1,20 @@
 package myClass;
-
 /**
- * User 클래스 : 이용자 객체를 생성하는 클래스 
+ * User 클래스 : 이용자 객체의 생성과 사용을 위한 클래스 
  *
- * @author (2025320070 복창희,2023320022 편규빈 )
+ * @author (2025320070 복창희,2023320022 편규빈)
  * @version (2026-10-04)
  */
 public class User extends DB_Element
 {
+    // 이용자의 속성
     private String name;
     private Integer stID;
 
     /**
      * User 클래스 생성자
      *
-     * @param  stID , name
+     * @param   학번(stID), 이름(name)
 
      */
     public User(int stID,String name)
@@ -24,23 +24,22 @@ public class User extends DB_Element
     }
 
     /**
-     * getID 메소드 -  이용자의 학번을 반환하는 매소드
-     *
+     * getID(): 이용자의 학번을 문자열로 반환하는 매소드
      * 
-     * @return   stID
+     * @return   학번 (stID)
      */
     public String getID()
     {
-        return Integer.toString(stID);
+        return Integer.toString(stID);  // 학번(stID)의 타입을 String으로 변경히여 반환  
     }
 
     /**
-     * toString 메소드 - 학번과 이름을 출력하는 메소드
+     * toString() : 이용자 객체의 정보를 실행결화 화면처럼 출력하는 메소드
      *
      * 
      * @return   학번과 이름
      */
-    public String toString()
+    public String toString()  // Object클래스의 toString()를 오버라이딩함 ! 
     {
         return "[" +stID+ "]"+ " "+ name ; }
 
