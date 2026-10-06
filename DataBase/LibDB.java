@@ -11,7 +11,7 @@ public class LibDB<T extends DB_Element>
 {
     // 어떤 타입도 저장 가능한 ArrayList 생성 
     private ArrayList<T> db = new ArrayList<T> () ; 
-    
+
     /**
      * LibDB 클래스의 객체 생성자
      */
@@ -38,14 +38,14 @@ public class LibDB<T extends DB_Element>
      * @param   ID 값 (책의 등록 번호 or 이용자 학번)
      * @return  DB 내 객체 반환 (T) 
      */
-  
+
     public T findElement(String ID)
     {
         // db 순회를 위한 Iterator 실행
         Iterator<T> it = db.iterator() ; 
 
         T object = null; 
-        
+
         while(it.hasNext()) {
             object = it.next()  ;  // DB 내 객체를 하나씩 읽어옴 
 

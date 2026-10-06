@@ -52,12 +52,11 @@ public class myApp
         loanDB.put(userDB.findElement(user2.getID()), bookDB.findElement(book3.getID()));
         loanDB.put(userDB.findElement(user3.getID()), bookDB.findElement(book4.getID()));
 
-        
         // 9. 대출 현황 출력
         System.out.println("----- 대출 현황 출력 -----") ;
         printLoanList(loanDB) ;
     }
-    
+
     /**
      * printDB() : 책 DB 또는 이용자 DB의 모든 요소를 출력하는 메소드 
      *
@@ -79,11 +78,11 @@ public class myApp
     {
         Set<User> keySet = loanDB.keySet() ;  // 모든 key 목록 가져오기 
         Iterator<User> it = keySet.iterator() ; // key 목록 순회를 위한 Iterator() 실행 !
-    
+
         while (it.hasNext()) {
             User user = it.next() ;  // User 객체 가져오기 
             Book book = loanDB.get(user) ;  // Book 객체 가져오기 
-            
+
             // 대출 현황 출력 (이용자 정보 => 책 정보)
             System.out.println(user.toString()+" ===> "+book.toString()) ; 
         }
